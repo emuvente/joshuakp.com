@@ -6,7 +6,7 @@
     "type": "git",
     "url": "git+https://github.com/emuvente/joshuakp.com.git"
   },
-  "author": "Joshua Kiwiet-Pantaleoni (emuvente)",
+  "author": "Joshua Kiwiet-Pantaleoni <emuvente@gmail.com>",
   "bugs": {
     "url": "https://github.com/emuvente/joshuakp.com/issues"
   },
@@ -14,7 +14,16 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
+    "alt": "^0.18.1",
+    "babel": "^6.3.13",
     "express": "^4.13.3",
-    "poet": "^2.0.1"
+    "history": "^1.13.1",
+    "iso": "^5.0.0",
+    "poet": "^2.0.1",
+    "react": "^0.14.3",
+    "react-router": "^1.0.2"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0"
   }
 }
