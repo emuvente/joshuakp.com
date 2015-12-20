@@ -1,0 +1,14 @@
+{
+  "name": "joshuakp.com",
+  "version": "1.0.0",
+  "description": "The source for [joshuakp.com](http://joshuakp.com)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emuvente/joshuakp.com.git"
+  },
+  "author": "Joshua Kiwiet-Pantaleoni (emuvente)",
+  "bugs": {
+    "url": "https://github.com/emuvente/joshuakp.com/issues"
+  },
+  "homepage": "https://github.com/emuvente/joshuakp.com#readme"
+}
