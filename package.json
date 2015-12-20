@@ -1,19 +1,20 @@
 {
-    "name": "joshuakp.com",
-    "version": "1.0.0",
-    "description": "The source for [joshuakp.com](http://joshuakp.com)",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/emuvente/joshuakp.com.git"
-    },
-    "author": "Joshua Kiwiet-Pantaleoni (emuvente)",
-    "bugs": {
-        "url": "https://github.com/emuvente/joshuakp.com/issues"
-    },
-    "homepage": "https://github.com/emuvente/joshuakp.com#readme",
-    "license": "UNLICENSED",
-    "private": true,
-    "dependencies": {
-        "poet": "^2.0.1"
-    }
+  "name": "joshuakp.com",
+  "version": "1.0.0",
+  "description": "The source for [joshuakp.com](http://joshuakp.com)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emuvente/joshuakp.com.git"
+  },
+  "author": "Joshua Kiwiet-Pantaleoni (emuvente)",
+  "bugs": {
+    "url": "https://github.com/emuvente/joshuakp.com/issues"
+  },
+  "homepage": "https://github.com/emuvente/joshuakp.com#readme",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "express": "^4.13.3",
+    "poet": "^2.0.1"
+  }
 }
