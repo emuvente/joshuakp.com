@@ -22,7 +22,7 @@
     "express": "^4.13.3",
     "express-session": "^1.12.1",
     "history": "^1.13.1",
-    "iso": "^5.0.0",
+    "iso": "^4.2.0",
     "poet": "^2.0.1",
     "react": "^0.14.3",
     "react-router": "^1.0.2",
