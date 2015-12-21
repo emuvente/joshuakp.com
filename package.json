@@ -16,12 +16,17 @@
   "dependencies": {
     "alt": "^0.18.1",
     "babel": "^6.3.13",
+    "body-parser": "^1.14.2",
+    "cookie-parser": "^1.4.0",
+    "ejs": "^2.3.4",
     "express": "^4.13.3",
+    "express-session": "^1.12.1",
     "history": "^1.13.1",
     "iso": "^5.0.0",
     "poet": "^2.0.1",
     "react": "^0.14.3",
-    "react-router": "^1.0.2"
+    "react-router": "^1.0.2",
+    "superagent": "^1.6.1"
   },
   "devDependencies": {
     "gulp": "^3.9.0"
