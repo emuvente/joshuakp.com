@@ -1,7 +1,8 @@
 "use strict";
 
-const Router = require('react-router');
 const React = require('react');
+const ReactServer = require('react-dom/server');
+const Router = require('react-router');
 const Alt = require('alt');
 const Iso = require('iso');
 const express = require('express');
@@ -10,7 +11,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 
-const routes = {};
+const routes = require('./src/routes.jsx');
 const alt = new Alt();
 const app = express();
 
@@ -75,8 +76,8 @@ app.use(function (req, res) {
     alt.bootstrap(JSON.stringify(res.locals.data || {}));
     const iso = new Iso();
 
-    Router.run(routes, req.url, function (Handler) {
-        const content = React.renderToString(React.createElement(Handler));
+    Router.match({routes, location: req.url}, function(error, redirect, props) {
+        const content = ReactServer.renderToString(<Router.RouterContext {...props} />);
         iso.add(content, alt.flush());
         res.render('index',{content:iso.render()});
     });
