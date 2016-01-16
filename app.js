@@ -2,6 +2,7 @@
 
 const Router = require('react-router');
 const React = require('react');
+const Alt = require('alt');
 const Iso = require('iso');
 const express = require('express');
 const session = require('express-session');
@@ -10,7 +11,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 
 const routes = {};
-const alt = require('./src/alt');
+const alt = new Alt();
 const app = express();
 
 app.set('port', (process.env.PORT || 5000));
