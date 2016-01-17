@@ -1,2 +1,2 @@
-require("babel-register")({presets: ['react']});
+require("babel-register")({presets: ['es2015', 'react']});
 require('../app');
