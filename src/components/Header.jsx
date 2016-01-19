@@ -1,26 +1,23 @@
 var React = require('react');
+var History = require('react-router').History;
 var PostActions = require('../actions/PostActions');
 
 var Header = React.createClass({
 
-    contextTypes: {
-        router: React.PropTypes.func
-    },
+    mixins: [History],
 
-    showAllPosts: (e) => {
+    showAllPosts: function(e) {
         e.preventDefault();
-        console.log(PostActions);
         PostActions.loadAllPosts(() => {
-            console.log('cb called');
-            this.context.router.transitionTo('postListView');
+            this.history.pushState(null, '/');
         });
     },
 
-    render: () => {
+    render: function() {
         return (
-            <div className="header">
-                <h1><a href="#" onClick={this.showAllPosts}>React Isomorphic Blog</a></h1>
-            </div>
+            <header>
+                <h1><a href="#" onClick={this.showAllPosts}>Joshuakp.com</a></h1>
+            </header>
         );
     }
 

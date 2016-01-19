@@ -62,7 +62,7 @@ app.get('/', function(req, res, next) {
     next();
 });
 
-poet.addRoute('post/:post', function(req, res, next) {
+poet.addRoute('/post/:post', function(req, res, next) {
     const post = poet.helpers.getPost(req.params.post);
     if(post) {
         res.locals.data = { "PostStore" : { "currentPost" : post } };

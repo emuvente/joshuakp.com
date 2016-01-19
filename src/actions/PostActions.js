@@ -1,24 +1,47 @@
 var alt = require('../alt');
 var request = require('superagent');
+var PostSource = require('../sources/PostSource.js');
 
 class PostActions {
     loadAllPosts(cb) {
-        request.get('/api/posts', (err,response) => {
-            this.updatePosts(response.body);
-            if(cb) cb();
-        });
+        return (dispatch) => {
+            // we dispatch an event here so we can have "loading" state.
+            dispatch();
+
+            PostSource.fetchPosts().then((posts) => {
+                this.updatePosts(posts);
+                if(cb) cb();
+            }).catch((error) => {
+                this.loadingFailed(error);
+            });
+        };
     }
 
-    loadSinglePost(id,cb) {
-        request.get('/api/post/'+id, (err,response) => {
-            this.updateCurrentPost(response.body);
-            if(cb) cb();
-        });
+    loadSinglePost(slug,cb) {
+        return (dispatch) => {
+            // we dispatch an event here so we can have "loading" state.
+            dispatch();
+
+            PostSource.fetchPost(slug).then((post) => {
+                this.updateCurrentPost(post);
+                if(cb) cb();
+            }).catch((error) => {
+                this.loadingFailed(error);
+            });
+        };
     }
 
-    updatePosts(posts) { return posts; }
+    loadingFailed(error) {
+        return error;
+    }
 
-    updateCurrentPost(post) { return post; }
+    updatePosts(posts) {
+        return posts;
+    }
+
+    updateCurrentPost(post) {
+        return post;
+    }
 }
 
 module.exports = alt.createActions(PostActions);

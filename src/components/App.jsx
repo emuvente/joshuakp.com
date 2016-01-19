@@ -3,7 +3,7 @@ var Header = require('./Header.jsx');
 
 var App = React.createClass({
 
-    render: () => {
+    render: function() {
         return (
             <div className="body-container">
                 <Header />
