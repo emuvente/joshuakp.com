@@ -2,34 +2,23 @@ var alt = require('../alt');
 var request = require('superagent');
 
 class PostActions {
-    loadAllPosts(cb){
-        var self = this;
-        request.get('/api/posts',function(err,response){
-            self.actions.updatePosts(response.body);
-            if(cb){
-                cb();
-            }
+    loadAllPosts(cb) {
+        request.get('/api/posts', (err,response) => {
+            this.updatePosts(response.body);
+            if(cb) cb();
         });
     }
 
-    loadSinglePost(id,cb){
-        var self = this;
-        request.get('/api/post/'+id,function(err,response){
-            self.actions.updateCurrentPost(response.body);
-            if(cb){
-                cb();
-            }
+    loadSinglePost(id,cb) {
+        request.get('/api/post/'+id, (err,response) => {
+            this.updateCurrentPost(response.body);
+            if(cb) cb();
         });
     }
 
-    updatePosts(posts){
-        this.dispatch(posts);
-    }
+    updatePosts(posts) { return posts; }
 
-    updateCurrentPost(post){
-        this.dispatch(post);
-    }
+    updateCurrentPost(post) { return post; }
 }
-
 
 module.exports = alt.createActions(PostActions);

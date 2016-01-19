@@ -1,18 +1,17 @@
 var React = require('react');
-var RouteHandler = require('react-router').RouteHandler;
-var Link = require('react-router').Link;
 var Header = require('./Header.jsx');
 
 var App = React.createClass({
 
-    render : function() {
+    render: () => {
         return (
             <div className="body-container">
-                <Header/>
-                <RouteHandler />
+                <Header />
+                {this.props.children}
             </div>
         );
     }
+
 });
 
 module.exports = App;

@@ -7,23 +7,23 @@ var SinglePostView = React.createClass({
         router: React.PropTypes.func
     },
 
-    componentDidMount : function() {
+    componentDidMount: () => {
         PostStore.listen(this.onChange);
     },
 
-    componentWillUnmount : function() {
+    componentWillUnmount: () => {
         PostStore.unlisten(this.onChange);
     },
 
-    onChange : function(state){
+    onChange: (state) => {
         this.setState(state);
     },
 
-    getInitialState : function(){
+    getInitialState: () => {
         return PostStore.getState();
     },
 
-    render : function() {
+    render: () => {
         return (
             <div className="full-post">
                 <h1 className="post-title">{this.state.currentPost.title}</h1>
@@ -37,6 +37,7 @@ var SinglePostView = React.createClass({
             </div>
         );
     }
+
 });
 
 module.exports = SinglePostView;

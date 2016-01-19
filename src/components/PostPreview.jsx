@@ -1,6 +1,4 @@
 var React = require('react');
-var RouteHandler = require('react-router').RouteHandler;
-var Link = require('react-router').Link;
 var PostActions = require('../actions/PostActions');
 
 var PostPreview = React.createClass({
@@ -9,15 +7,14 @@ var PostPreview = React.createClass({
         router: React.PropTypes.func
     },
 
-    loadPost : function(e){
+    loadPost: (e) => {
         e.preventDefault();
-        var self = this;
-        PostActions.loadSinglePost(this.props.post.id, function() {
-           self.context.router.transitionTo('/post/'+self.props.post.id+'/'+self.props.post.slug);
+        PostActions.loadSinglePost(this.props.post.id, () => {
+           this.context.router.transitionTo(`/post/${this.props.post.id}/${self.props.post.slug}`);
         });
     },
 
-    render : function() {
+    render: () => {
         return (
             <a href="#" className="single-post" onClick={this.loadPost}>
                 <div className="post-title">{this.props.post.title}</div>
@@ -25,6 +22,7 @@ var PostPreview = React.createClass({
             </a>
         );
     }
+
 });
 
 module.exports = PostPreview;

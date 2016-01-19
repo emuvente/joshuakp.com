@@ -1,15 +1,12 @@
 var Iso = require('iso');
-var Router = require('react-router');
 var React = require('react');
+var ReactDOM = require('react-dom');
 var routes = require('./routes.jsx');
 var alt = require('./alt');
 
 window.onload = function(){
     Iso.bootstrap(function (state, meta, container) {
         alt.bootstrap(state);
-        Router.run(routes, Router.HistoryLocation, function (Handler) {
-            var node = React.createElement(Handler);
-            React.render(node, container);
-        });
+        ReactDOM.render(routes, container);
     });
 };

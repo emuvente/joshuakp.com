@@ -3,7 +3,6 @@
 const React = require('react');
 const ReactServer = require('react-dom/server');
 const Router = require('react-router');
-const Alt = require('alt');
 const Iso = require('iso');
 const express = require('express');
 const session = require('express-session');
@@ -12,7 +11,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 
 const routes = require('./src/routes.jsx');
-const alt = new Alt();
+const alt = require('./src/alt.js');
 const app = express();
 
 app.set('port', (process.env.PORT || 5000));
@@ -72,14 +71,27 @@ poet.addRoute('post/:post', function(req, res, next) {
 });
 
 // render response with React
-app.use(function (req, res) {
+app.use(function (req, res, next) {
     alt.bootstrap(JSON.stringify(res.locals.data || {}));
     const iso = new Iso();
 
     Router.match({routes, location: req.url}, function(error, redirect, props) {
-        const content = ReactServer.renderToString(<Router.RouterContext {...props} />);
-        iso.add(content, alt.flush());
-        res.render('index',{content:iso.render()});
+        if(error) {
+            next(error);
+        }
+        else if(redirect) {
+            // how to handle redirect?
+        }
+        else if(props) {
+            const content = ReactServer.renderToString(React.createElement(Router.RoutingContext, props));
+            iso.add(content, alt.flush());
+            res.render('index',{content:iso.render()});
+        }
+        else {
+            const err = new Error();
+            err.status = 404;
+            return next(err);
+        }
     });
 });
 

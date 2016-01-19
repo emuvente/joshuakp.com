@@ -1,5 +1,5 @@
 module.exports = {
-    entryPoint: './src/client.js',
+    entryPoint: './src/client.jsx',
     output: {
         filename: 'public/js/bundle.js'
     },
@@ -10,7 +10,7 @@ module.exports = {
                 exclude: /(node_modules)/,
                 loader: 'babel-loader',
                 query: {
-                    presets: ['react']
+                    presets: ['es2015', 'react']
                 }
             }
         ]

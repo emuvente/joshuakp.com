@@ -1,6 +1,4 @@
 var React = require('react');
-var RouteHandler = require('react-router').RouteHandler;
-var Link = require('react-router').Link;
 var PostActions = require('../actions/PostActions');
 
 var Header = React.createClass({
@@ -9,20 +7,23 @@ var Header = React.createClass({
         router: React.PropTypes.func
     },
 
-    showAllPosts : function(e){
+    showAllPosts: (e) => {
         e.preventDefault();
-        PostActions.loadAllPosts((function(){
-           this.context.router.transitionTo('postListView');
-        }).bind(this));
+        console.log(PostActions);
+        PostActions.loadAllPosts(() => {
+            console.log('cb called');
+            this.context.router.transitionTo('postListView');
+        });
     },
 
-    render : function() {
+    render: () => {
         return (
             <div className="header">
                 <h1><a href="#" onClick={this.showAllPosts}>React Isomorphic Blog</a></h1>
             </div>
         );
     }
+
 });
 
 module.exports = Header;
