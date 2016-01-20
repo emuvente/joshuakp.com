@@ -15,9 +15,9 @@ var PostPreview = React.createClass({
 
     render: function() {
         return (
-            <a href="#" className="single-post" onClick={this.loadPost}>
+            <a href={this.props.post.url} className="single-post" onClick={this.loadPost}>
                 <div className="post-title">{this.props.post.title}</div>
-                <div className="post-preview">{this.props.post.preview}</div>
+                <div className="post=preview">{this.props.post.description}</div>
             </a>
         );
     }

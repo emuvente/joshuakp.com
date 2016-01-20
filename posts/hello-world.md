@@ -1,7 +1,7 @@
 ---
 title: Hello, World!
 date: 2015-12-20
-preview: This is the first post in the blog.
+description: This is the first post in the blog.
 ---
 
 This is the first post in the blog. I'm using [Poet](https://jsantell.github.io/poet/), which allows me to write my posts in markdown.

@@ -32811,7 +32811,7 @@
 	    render: function render() {
 	        return React.createElement(
 	            'a',
-	            { href: '#', className: 'single-post', onClick: this.loadPost },
+	            { href: this.props.post.url, className: 'single-post', onClick: this.loadPost },
 	            React.createElement(
 	                'div',
 	                { className: 'post-title' },
@@ -32819,8 +32819,8 @@
 	            ),
 	            React.createElement(
 	                'div',
-	                { className: 'post-preview' },
-	                this.props.post.preview
+	                { className: 'post=preview' },
+	                this.props.post.description
 	            )
 	        );
 	    }
