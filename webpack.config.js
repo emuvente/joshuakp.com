@@ -1,7 +1,6 @@
 module.exports = {
-    entryPoint: './src/client.jsx',
     output: {
-        filename: 'public/js/bundle.js'
+        filename: 'app.js'
     },
     module: {
         loaders: [
