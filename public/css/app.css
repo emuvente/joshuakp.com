@@ -112,3 +112,10 @@ a img {
     box-sizing: border-box;
   }
 }
+body {
+  font-family: Tahoma, Verdana, Segoe, sans-serif;
+}
+pre,
+code {
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+}
