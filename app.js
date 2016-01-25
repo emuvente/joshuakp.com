@@ -6,10 +6,9 @@ const compression = require('compression');
 const path = require('path');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-const muse = require('./muse');
-const app = express();
 
 // setup app
+const app = express();
 app.set('port', (process.env.PORT || 5000));
 app.set('views', __dirname+'/views');
 app.set('view engine', 'ejs');
@@ -22,19 +21,19 @@ app.use(cookieParser());
 app.use(compression());
 
 // setup Poet
-require('./muse')(app, {
+require('./server/muse')(app, {
     posts: './posts/',
     metaFormat: 'yaml'
 });
 
 // setup api
-require('./api')(app);
+require('./server/api')(app);
 
 // setup www
-require('./www')(app);
+require('./server/www')(app);
 
 // setup error handler
-require('./error-handler')(app);
+require('./server/error-handler')(app);
 
 // start the server
 app.listen(app.get('port'), function() {

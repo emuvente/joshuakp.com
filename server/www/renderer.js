@@ -4,8 +4,8 @@ const React = require('react');
 const ReactServer = require('react-dom/server');
 const Router = require('react-router');
 const Iso = require('iso');
-const routes = require('../src/routes.jsx');
-const alt = require('../src/alt.js');
+const routes = require('../../src/routes.jsx');
+const alt = require('../../src/alt.js');
 
 // render response with React
 module.exports = function(app) {
