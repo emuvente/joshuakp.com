@@ -1,14 +1,21 @@
 ---
 title: Hello, World!
-date: 2015-12-20
+date: 2016-1-24
 description: This is the first post in the blog.
 ---
 
-This is the first post in the blog. I'm using [Poet](https://jsantell.github.io/poet/), which allows me to write my posts in markdown.
-To test this, I'm going to try some formatting.
-
-## Secondary Headline
-
-```
-console.log('some code');
-```
+This is the first post in the blog. The goal of this blog is to be an ongoing project to showcase various tech-y things.
+I wanted to do these things:
+    * ES6/Babel
+    * Isomorphic React/Flux
+    * Responsive Progressive Enhancement
+To achieve this I'm using several things:
+    * Poet
+    * Atom
+    * Markdown
+    * Heroku
+    * Stylus
+And I have plans to do these things:
+    * Prism
+    * Cloudinary
+    * CDN (Cloudflare?)
