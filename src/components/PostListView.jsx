@@ -27,7 +27,7 @@ var PostListView = React.createClass({
            );
         });
         return (
-            <div>
+            <div className="row">
                 {posts}
             </div>
         );

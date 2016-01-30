@@ -1,5 +1,6 @@
 var React = require('react');
 var PostStore = require('../stores/PostStore');
+var moment = require('moment');
 
 var SinglePostView = React.createClass({
 
@@ -20,11 +21,14 @@ var SinglePostView = React.createClass({
     },
 
     render: function() {
+        let posted = moment(this.state.currentPost.date).format('MMMM Do, YYYY');
+
         return (
-            <div className="full-post">
+            <article className="full-post row">
                 <h1 className="post-title">{this.state.currentPost.title}</h1>
+                <p className="post-date">Posted on {posted}</p>
                 <div className="post-content" dangerouslySetInnerHTML={{__html: this.state.currentPost.content}} />
-            </div>
+            </article>
         );
     }
 
