@@ -1,11 +1,12 @@
 "use strict";
 
-const express = require('express');
-const session = require('express-session');
-const compression = require('compression');
-const path = require('path');
 const bodyParser = require('body-parser');
+const compression = require('compression');
+const config = require('./config');
 const cookieParser = require('cookie-parser');
+const express = require('express');
+const path = require('path');
+const session = require('express-session');
 
 // setup app
 const app = express();
@@ -14,7 +15,7 @@ app.set('views', __dirname+'/views');
 app.set('view engine', 'ejs');
 
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(session({secret: 'copy cat', resave: false, saveUninitialized: true}));
+app.use(session({secret: config('SECURE_KEY').split(','), resave: false, saveUninitialized: true}));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json({limit : '50mb'}));
 app.use(cookieParser());
