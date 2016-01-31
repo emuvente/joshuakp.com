@@ -1,3 +1,3 @@
 const env = require('./env.json');
 
-module.exports = name => process.env[name] || env[name];
+module.exports = name => typeof process.env[name] !== 'undefined' ? process.env[name] : env[name];
