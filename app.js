@@ -16,8 +16,8 @@ app.use(compression());
 
 // setup Poet
 require('./server/muse')(app, {
-    posts: './posts/',
-    metaFormat: 'yaml'
+	posts: './posts/',
+	metaFormat: 'yaml'
 });
 
 // setup api
@@ -31,5 +31,5 @@ require('./server/error-handler')(app);
 
 // start the server
 app.listen(app.get('port'), function() {
-    console.log('Node app is running on port', app.get('port'));
+	console.log('Node app is running on port', app.get('port'));
 });

@@ -9,8 +9,8 @@ var routes = require('./routes.jsx');
 var alt = require('./alt');
 
 window.onload = function(){
-    Iso.bootstrap(function (state, meta, container) {
-        alt.bootstrap(state);
-        ReactDOM.render(<Router history={history}>{routes}</Router>, container);
-    });
+	Iso.bootstrap(function (state, meta, container) {
+		alt.bootstrap(state);
+		ReactDOM.render(<Router history={history}>{routes}</Router>, container);
+	});
 };

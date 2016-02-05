@@ -4,34 +4,34 @@ var PostPreview = require('./PostPreview.jsx');
 
 var PostListView = React.createClass({
 
-    componentDidMount() {
-        PostStore.listen(this.onChange);
-    },
+	componentDidMount() {
+		PostStore.listen(this.onChange);
+	},
 
-    componentWillUnmount() {
-        PostStore.unlisten(this.onChange);
-    },
+	componentWillUnmount() {
+		PostStore.unlisten(this.onChange);
+	},
 
-    onChange(state) {
-        this.setState(state);
-    },
+	onChange(state) {
+		this.setState(state);
+	},
 
-    getInitialState() {
-        return PostStore.getState();
-    },
+	getInitialState() {
+		return PostStore.getState();
+	},
 
-    render() {
-        const posts = this.state.posts.map((post) => {
-           return (
-               <PostPreview key={post.slug} post={post} />
-           );
-        });
-        return (
-            <div className="row">
-                {posts}
-            </div>
-        );
-    }
+	render() {
+		const posts = this.state.posts.map((post) => {
+		   return (
+			   <PostPreview key={post.slug} post={post} />
+		   );
+		});
+		return (
+			<div className="row">
+				{posts}
+			</div>
+		);
+	}
 
 });
 

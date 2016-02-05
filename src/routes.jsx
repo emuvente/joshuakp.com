@@ -6,10 +6,10 @@ var SinglePostView = require('./components/SinglePostView.jsx');
 var App = require('./components/App.jsx');
 
 var routes = (
-    <Route path="/" component={App}>
-        <IndexRoute component={PostListView}/>
-        <Route path="/post/:id" component={SinglePostView} />
-    </Route>
+	<Route path="/" component={App}>
+		<IndexRoute component={PostListView}/>
+		<Route path="/post/:id" component={SinglePostView} />
+	</Route>
 );
 
 module.exports = routes;

@@ -57,14 +57,14 @@
 	var alt = __webpack_require__(401);
 
 	window.onload = function () {
-	    Iso.bootstrap(function (state, meta, container) {
-	        alt.bootstrap(state);
-	        ReactDOM.render(React.createElement(
-	            Router,
-	            { history: history },
-	            routes
-	        ), container);
-	    });
+		Iso.bootstrap(function (state, meta, container) {
+			alt.bootstrap(state);
+			ReactDOM.render(React.createElement(
+				Router,
+				{ history: history },
+				routes
+			), container);
+		});
 	};
 
 /***/ },
@@ -29544,10 +29544,10 @@
 	var App = __webpack_require__(521);
 
 	var routes = React.createElement(
-	    Route,
-	    { path: '/', component: App },
-	    React.createElement(IndexRoute, { component: PostListView }),
-	    React.createElement(Route, { path: '/post/:id', component: SinglePostView })
+		Route,
+		{ path: '/', component: App },
+		React.createElement(IndexRoute, { component: PostListView }),
+		React.createElement(Route, { path: '/post/:id', component: SinglePostView })
 	);
 
 	module.exports = routes;
@@ -29563,29 +29563,29 @@
 	var PostPreview = __webpack_require__(420);
 
 	var PostListView = React.createClass({
-	    displayName: 'PostListView',
-	    componentDidMount: function componentDidMount() {
-	        PostStore.listen(this.onChange);
-	    },
-	    componentWillUnmount: function componentWillUnmount() {
-	        PostStore.unlisten(this.onChange);
-	    },
-	    onChange: function onChange(state) {
-	        this.setState(state);
-	    },
-	    getInitialState: function getInitialState() {
-	        return PostStore.getState();
-	    },
-	    render: function render() {
-	        var posts = this.state.posts.map(function (post) {
-	            return React.createElement(PostPreview, { key: post.slug, post: post });
-	        });
-	        return React.createElement(
-	            'div',
-	            { className: 'row' },
-	            posts
-	        );
-	    }
+		displayName: 'PostListView',
+		componentDidMount: function componentDidMount() {
+			PostStore.listen(this.onChange);
+		},
+		componentWillUnmount: function componentWillUnmount() {
+			PostStore.unlisten(this.onChange);
+		},
+		onChange: function onChange(state) {
+			this.setState(state);
+		},
+		getInitialState: function getInitialState() {
+			return PostStore.getState();
+		},
+		render: function render() {
+			var posts = this.state.posts.map(function (post) {
+				return React.createElement(PostPreview, { key: post.slug, post: post });
+			});
+			return React.createElement(
+				'div',
+				{ className: 'row' },
+				posts
+			);
+		}
 	});
 
 	module.exports = PostListView;
@@ -29604,52 +29604,52 @@
 	var PostActions = __webpack_require__(415);
 
 	var PostStore = function () {
-	    function PostStore() {
-	        _classCallCheck(this, PostStore);
+		function PostStore() {
+			_classCallCheck(this, PostStore);
 
-	        this.posts = [];
-	        this.currentPost = null;
-	        this.errorMessage = null;
+			this.posts = [];
+			this.currentPost = null;
+			this.errorMessage = null;
 
-	        this.bindListeners({
-	            handleLoadAllPosts: PostActions.LOAD_ALL_POSTS,
-	            handleLoadSinglePost: PostActions.LOAD_SINGLE_POST,
-	            handleLoadingFailed: PostActions.LOADING_FAILED,
-	            updateCurrentPost: PostActions.UPDATE_CURRENT_POST,
-	            updatePosts: PostActions.UPDATE_POSTS
-	        });
-	    }
+			this.bindListeners({
+				handleLoadAllPosts: PostActions.LOAD_ALL_POSTS,
+				handleLoadSinglePost: PostActions.LOAD_SINGLE_POST,
+				handleLoadingFailed: PostActions.LOADING_FAILED,
+				updateCurrentPost: PostActions.UPDATE_CURRENT_POST,
+				updatePosts: PostActions.UPDATE_POSTS
+			});
+		}
 
-	    _createClass(PostStore, [{
-	        key: 'handleLoadAllPosts',
-	        value: function handleLoadAllPosts() {
-	            this.posts = [];
-	            this.errorMessage = null;
-	        }
-	    }, {
-	        key: 'handleLoadSinglePost',
-	        value: function handleLoadSinglePost() {
-	            this.currentPost = null;
-	            this.errorMessage = null;
-	        }
-	    }, {
-	        key: 'handleLoadingFailed',
-	        value: function handleLoadingFailed(error) {
-	            this.errorMessage = error;
-	        }
-	    }, {
-	        key: 'updateCurrentPost',
-	        value: function updateCurrentPost(post) {
-	            this.currentPost = post;
-	        }
-	    }, {
-	        key: 'updatePosts',
-	        value: function updatePosts(posts) {
-	            this.posts = posts;
-	        }
-	    }]);
+		_createClass(PostStore, [{
+			key: 'handleLoadAllPosts',
+			value: function handleLoadAllPosts() {
+				this.posts = [];
+				this.errorMessage = null;
+			}
+		}, {
+			key: 'handleLoadSinglePost',
+			value: function handleLoadSinglePost() {
+				this.currentPost = null;
+				this.errorMessage = null;
+			}
+		}, {
+			key: 'handleLoadingFailed',
+			value: function handleLoadingFailed(error) {
+				this.errorMessage = error;
+			}
+		}, {
+			key: 'updateCurrentPost',
+			value: function updateCurrentPost(post) {
+				this.currentPost = post;
+			}
+		}, {
+			key: 'updatePosts',
+			value: function updatePosts(posts) {
+				this.posts = posts;
+			}
+		}]);
 
-	    return PostStore;
+		return PostStore;
 	}();
 
 	module.exports = alt.createStore(PostStore, 'PostStore');
@@ -31290,62 +31290,62 @@
 	var PostSource = __webpack_require__(419);
 
 	var PostActions = function () {
-	    function PostActions() {
-	        _classCallCheck(this, PostActions);
-	    }
+		function PostActions() {
+			_classCallCheck(this, PostActions);
+		}
 
-	    _createClass(PostActions, [{
-	        key: 'loadAllPosts',
-	        value: function loadAllPosts(cb) {
-	            var _this = this;
+		_createClass(PostActions, [{
+			key: 'loadAllPosts',
+			value: function loadAllPosts(cb) {
+				var _this = this;
 
-	            return function (dispatch) {
-	                // we dispatch an event here so we can have "loading" state.
-	                dispatch();
+				return function (dispatch) {
+					// we dispatch an event here so we can have "loading" state.
+					dispatch();
 
-	                PostSource.fetchPosts().then(function (posts) {
-	                    _this.updatePosts(posts);
-	                    if (cb) cb();
-	                }).catch(function (error) {
-	                    _this.loadingFailed(error);
-	                });
-	            };
-	        }
-	    }, {
-	        key: 'loadSinglePost',
-	        value: function loadSinglePost(slug, cb) {
-	            var _this2 = this;
+					PostSource.fetchPosts().then(function (posts) {
+						_this.updatePosts(posts);
+						if (cb) cb();
+					}).catch(function (error) {
+						_this.loadingFailed(error);
+					});
+				};
+			}
+		}, {
+			key: 'loadSinglePost',
+			value: function loadSinglePost(slug, cb) {
+				var _this2 = this;
 
-	            return function (dispatch) {
-	                // we dispatch an event here so we can have "loading" state.
-	                dispatch();
+				return function (dispatch) {
+					// we dispatch an event here so we can have "loading" state.
+					dispatch();
 
-	                PostSource.fetchPost(slug).then(function (post) {
-	                    _this2.updateCurrentPost(post);
-	                    if (cb) cb();
-	                }).catch(function (error) {
-	                    _this2.loadingFailed(error);
-	                });
-	            };
-	        }
-	    }, {
-	        key: 'loadingFailed',
-	        value: function loadingFailed(error) {
-	            return error;
-	        }
-	    }, {
-	        key: 'updatePosts',
-	        value: function updatePosts(posts) {
-	            return posts;
-	        }
-	    }, {
-	        key: 'updateCurrentPost',
-	        value: function updateCurrentPost(post) {
-	            return post;
-	        }
-	    }]);
+					PostSource.fetchPost(slug).then(function (post) {
+						_this2.updateCurrentPost(post);
+						if (cb) cb();
+					}).catch(function (error) {
+						_this2.loadingFailed(error);
+					});
+				};
+			}
+		}, {
+			key: 'loadingFailed',
+			value: function loadingFailed(error) {
+				return error;
+			}
+		}, {
+			key: 'updatePosts',
+			value: function updatePosts(posts) {
+				return posts;
+			}
+		}, {
+			key: 'updateCurrentPost',
+			value: function updateCurrentPost(post) {
+				return post;
+			}
+		}]);
 
-	    return PostActions;
+		return PostActions;
 	}();
 
 	module.exports = alt.createActions(PostActions);
@@ -32765,21 +32765,21 @@
 	var request = __webpack_require__(416);
 
 	var PostSource = {
-	    fetchPosts: function fetchPosts() {
-	        return new Promise(function (resolve, reject) {
-	            request.get('/api/posts').end(function (error, response) {
-	                return error ? reject(error) : resolve(response.body);
-	            });
-	        });
-	    },
+		fetchPosts: function fetchPosts() {
+			return new Promise(function (resolve, reject) {
+				request.get('/api/posts').end(function (error, response) {
+					return error ? reject(error) : resolve(response.body);
+				});
+			});
+		},
 
-	    fetchPost: function fetchPost(slug) {
-	        return new Promise(function (resolve, reject) {
-	            request.get('/api/post/' + slug).end(function (error, response) {
-	                return error ? reject(error) : resolve(response.body);
-	            });
-	        });
-	    }
+		fetchPost: function fetchPost(slug) {
+			return new Promise(function (resolve, reject) {
+				request.get('/api/post/' + slug).end(function (error, response) {
+					return error ? reject(error) : resolve(response.body);
+				});
+			});
+		}
 	};
 
 	module.exports = PostSource;
@@ -32795,35 +32795,35 @@
 	var PostActions = __webpack_require__(415);
 
 	var PostPreview = React.createClass({
-	    displayName: 'PostPreview',
+		displayName: 'PostPreview',
 
-	    mixins: [History],
+		mixins: [History],
 
-	    loadPost: function loadPost(e) {
-	        var _this = this;
+		loadPost: function loadPost(e) {
+			var _this = this;
 
-	        e.preventDefault();
-	        PostActions.loadSinglePost(this.props.post.slug, function () {
-	            _this.history.pushState(null, '/post/' + _this.props.post.slug);
-	        });
-	    },
+			e.preventDefault();
+			PostActions.loadSinglePost(this.props.post.slug, function () {
+				_this.history.pushState(null, '/post/' + _this.props.post.slug);
+			});
+		},
 
-	    render: function render() {
-	        return React.createElement(
-	            'a',
-	            { href: this.props.post.url, className: 'single-post', onClick: this.loadPost },
-	            React.createElement(
-	                'div',
-	                { className: 'post-title' },
-	                this.props.post.title
-	            ),
-	            React.createElement(
-	                'div',
-	                { className: 'post=preview' },
-	                this.props.post.description
-	            )
-	        );
-	    }
+		render: function render() {
+			return React.createElement(
+				'a',
+				{ href: this.props.post.url, className: 'single-post', onClick: this.loadPost },
+				React.createElement(
+					'div',
+					{ className: 'post-title' },
+					this.props.post.title
+				),
+				React.createElement(
+					'div',
+					{ className: 'post=preview' },
+					this.props.post.description
+				)
+			);
+		}
 
 	});
 
@@ -32840,44 +32840,44 @@
 	var moment = __webpack_require__(422);
 
 	var SinglePostView = React.createClass({
-	    displayName: 'SinglePostView',
+		displayName: 'SinglePostView',
 
-	    componentDidMount: function componentDidMount() {
-	        PostStore.listen(this.onChange);
-	    },
+		componentDidMount: function componentDidMount() {
+			PostStore.listen(this.onChange);
+		},
 
-	    componentWillUnmount: function componentWillUnmount() {
-	        PostStore.unlisten(this.onChange);
-	    },
+		componentWillUnmount: function componentWillUnmount() {
+			PostStore.unlisten(this.onChange);
+		},
 
-	    onChange: function onChange(state) {
-	        this.setState(state);
-	    },
+		onChange: function onChange(state) {
+			this.setState(state);
+		},
 
-	    getInitialState: function getInitialState() {
-	        return PostStore.getState();
-	    },
+		getInitialState: function getInitialState() {
+			return PostStore.getState();
+		},
 
-	    render: function render() {
-	        var posted = moment(this.state.currentPost.date).format('MMMM Do, YYYY');
+		render: function render() {
+			var posted = moment(this.state.currentPost.date).format('MMMM Do, YYYY');
 
-	        return React.createElement(
-	            'article',
-	            { className: 'full-post row' },
-	            React.createElement(
-	                'h1',
-	                { className: 'post-title' },
-	                this.state.currentPost.title
-	            ),
-	            React.createElement(
-	                'p',
-	                { className: 'post-date' },
-	                'Posted on ',
-	                posted
-	            ),
-	            React.createElement('div', { className: 'post-content', dangerouslySetInnerHTML: { __html: this.state.currentPost.content } })
-	        );
-	    }
+			return React.createElement(
+				'article',
+				{ className: 'full-post row' },
+				React.createElement(
+					'h1',
+					{ className: 'post-title' },
+					this.state.currentPost.title
+				),
+				React.createElement(
+					'p',
+					{ className: 'post-date' },
+					'Posted on ',
+					posted
+				),
+				React.createElement('div', { className: 'post-content', dangerouslySetInnerHTML: { __html: this.state.currentPost.content } })
+			);
+		}
 
 	});
 
@@ -45712,17 +45712,21 @@
 	var Footer = __webpack_require__(523);
 
 	var App = React.createClass({
-	    displayName: 'App',
+		displayName: 'App',
 
-	    render: function render() {
-	        return React.createElement(
-	            'div',
-	            { className: 'body-container' },
-	            React.createElement(Header, null),
-	            this.props.children,
-	            React.createElement(Footer, null)
-	        );
-	    }
+		render: function render() {
+			return React.createElement(
+				'div',
+				{ className: 'container' },
+				React.createElement(
+					'div',
+					{ className: 'main' },
+					React.createElement(Header, null),
+					this.props.children
+				),
+				React.createElement(Footer, null)
+			);
+		}
 
 	});
 
@@ -45739,34 +45743,34 @@
 	var PostActions = __webpack_require__(415);
 
 	var Header = React.createClass({
-	    displayName: 'Header',
+		displayName: 'Header',
 
-	    mixins: [History],
+		mixins: [History],
 
-	    showAllPosts: function showAllPosts(e) {
-	        var _this = this;
+		showAllPosts: function showAllPosts(e) {
+			var _this = this;
 
-	        e.preventDefault();
-	        PostActions.loadAllPosts(function () {
-	            _this.history.pushState(null, '/');
-	        });
-	    },
+			e.preventDefault();
+			PostActions.loadAllPosts(function () {
+				_this.history.pushState(null, '/');
+			});
+		},
 
-	    render: function render() {
-	        return React.createElement(
-	            'header',
-	            { className: 'row' },
-	            React.createElement(
-	                'h1',
-	                null,
-	                React.createElement(
-	                    'a',
-	                    { href: '#', onClick: this.showAllPosts },
-	                    'Joshuakp.com'
-	                )
-	            )
-	        );
-	    }
+		render: function render() {
+			return React.createElement(
+				'header',
+				{ className: 'row' },
+				React.createElement(
+					'h1',
+					null,
+					React.createElement(
+						'a',
+						{ href: '/', onClick: this.showAllPosts },
+						'Joshuakp.com'
+					)
+				)
+			);
+		}
 
 	});
 
@@ -45781,19 +45785,19 @@
 	var React = __webpack_require__(196);
 
 	var Header = React.createClass({
-	    displayName: "Header",
+		displayName: "Header",
 
-	    render: function render() {
-	        var year = new Date().getFullYear();
+		render: function render() {
+			var year = new Date().getFullYear();
 
-	        return React.createElement(
-	            "footer",
-	            { className: "row" },
-	            "Copyright © ",
-	            year,
-	            " Joshua Kiwiet-Pantaleoni"
-	        );
-	    }
+			return React.createElement(
+				"footer",
+				{ className: "row" },
+				"Copyright © ",
+				year,
+				" Joshua Kiwiet-Pantaleoni"
+			);
+		}
 
 	});
 

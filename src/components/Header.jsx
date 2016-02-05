@@ -4,22 +4,22 @@ var PostActions = require('../actions/PostActions');
 
 var Header = React.createClass({
 
-    mixins: [History],
+	mixins: [History],
 
-    showAllPosts: function(e) {
-        e.preventDefault();
-        PostActions.loadAllPosts(() => {
-            this.history.pushState(null, '/');
-        });
-    },
+	showAllPosts: function(e) {
+		e.preventDefault();
+		PostActions.loadAllPosts(() => {
+			this.history.pushState(null, '/');
+		});
+	},
 
-    render: function() {
-        return (
-            <header className="row">
-                <h1><a href="#" onClick={this.showAllPosts}>Joshuakp.com</a></h1>
-            </header>
-        );
-    }
+	render: function() {
+		return (
+			<header className="row">
+				<h1><a href="/" onClick={this.showAllPosts}>Joshuakp.com</a></h1>
+			</header>
+		);
+	}
 
 });
 
