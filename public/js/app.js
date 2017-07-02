@@ -45718,10 +45718,10 @@
 			return React.createElement(
 				'div',
 				{ className: 'container' },
+				React.createElement(Header, null),
 				React.createElement(
 					'div',
 					{ className: 'main' },
-					React.createElement(Header, null),
 					this.props.children
 				),
 				React.createElement(Footer, null)
@@ -45761,12 +45761,16 @@
 				'header',
 				{ className: 'row' },
 				React.createElement(
-					'h1',
-					null,
+					'div',
+					{ className: 'banner' },
 					React.createElement(
-						'a',
-						{ href: '/', onClick: this.showAllPosts },
-						'Joshuakp.com'
+						'h1',
+						null,
+						React.createElement(
+							'a',
+							{ href: '/', onClick: this.showAllPosts },
+							'Joshuakp.com'
+						)
 					)
 				)
 			);

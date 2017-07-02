@@ -1,9 +1,11 @@
 /* Dead Simple Grid (c) 2015 Vladimir Agafonkin */
 
+@require 'spacing'
+
 .row .row
-	margin 0 -1.5em
+	margin 0 -$margin
 .col
-	padding 0  1.5em
+	padding 0  $margin
 
 .row:before, .row:after
 	content ''

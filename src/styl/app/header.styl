@@ -1,0 +1,11 @@
+@require 'spacing'
+@require 'breakpoints'
+
+header
+	centered-content()
+
+	.logo
+		@media non-retina
+			background-image url(/img/josh.png)
+		@media retina
+			background-image url(/img/josh@2x.png)

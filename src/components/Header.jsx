@@ -16,7 +16,9 @@ var Header = React.createClass({
 	render: function() {
 		return (
 			<header className="row">
-				<h1><a href="/" onClick={this.showAllPosts}>Joshuakp.com</a></h1>
+				<div className="banner">
+					<h1><a href="/" onClick={this.showAllPosts}>Joshuakp.com</a></h1>
+				</div>
 			</header>
 		);
 	}

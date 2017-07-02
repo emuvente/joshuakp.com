@@ -1,28 +1,26 @@
 @require 'breakpoints'
 @require 'type'
 
-html, body
+html, body, body > *:first-child
 	width 100%
 	height 100%
+	background-color $silver
 
 body
 	font-size 1em
 	line-height 1.4
 
-	@media $xlarge-up
-		font-size 1.125em
-
-	@media $xxlarge-up
+	@media $small-up
 		font-size 1.25em
 
-.container
-	background-color $jet
-	width 100%
-	height 100%
+	@media $xlarge-up
+		font-size 1.375em
+
+	@media $xxlarge-up
+		font-size 1.5em
 
 .main
-	margin 0 auto
-	max-width 60em
+	background-color $ghost
 
 p
 	margin 1em 0

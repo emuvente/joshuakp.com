@@ -7,8 +7,8 @@ var App = React.createClass({
 	render: function() {
 		return (
 			<div className="container">
+				<Header />
 				<div className="main">
-					<Header />
 					{this.props.children}
 				</div>
 				<Footer />
